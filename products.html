@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>პროდუქტების გვერდი</title>
+    <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="images/Tech Marketlogo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="app">
+     <div class="header-wrapper"> 
+  <!-- Top Bar -->
+  <div class="top-bar py-1 top-header">
+    <div class="container d-flex justify-content-between align-items-center">
+      <span class="shipping-msg">უფასო დაბრუნება 30 დღეში!</span>
+      <button class="btn btn-sm subscribe-btn">
+  <i class="bi bi-envelope"></i> გამოიწერეთ ჩვენი საინფორმაციო ბიულეტენი
+</button>
+<span id="subscribe-status" class="text-success ms-2" style="display: none;">
+  <i class="bi bi-check-circle"></i> გამოწერილია
+</span>
+    </div>
+  </div>
+   <div class="header-divider"></div>
+  <!-- Main Header -->
+  <div class="main-header py-3">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center">
+
+      <!-- Logo -->
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/Tech Market.png" alt="logo">
+        </a>
+      </div>
+
+      <!-- Search Bar -->
+     <div class="input-group w-50">
+      <input type="text" class="form-control" id="searchInput" placeholder="Search for products...">
+      <button class="btn search-btn" id="searchButton">
+      <i class="bi bi-search"></i>
+      </button>
+    </div>
+    
+      
+
+      <!-- Country / Account / Cart -->
+      <div class="d-flex align-items-center gap-3 text-white">
+        <div class="dropdown text-end small">
+          <span>ქვეყანა/ვალუტა</span><br>
+          <button id="country-btn" class="btn btn-sm text-white dropdown-toggle p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <strong>საქართველო (GEL ლ)</strong>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#" onclick="updateCountry('Georgia', 'GEL ლ')">საქართველო (GEL ლ)</a></li>
+            <li><a class="dropdown-item" href="#" onclick="updateCountry('Germany', 'EUR €')">გერმანია (EUR €)</a></li>
+            <li><a class="dropdown-item" href="#" onclick="updateCountry('USA', 'USD $')">ამერიკა (USD $)</a></li>
+            <li><a class="dropdown-item" href="#" onclick="updateCountry('UK', 'GBP £')">დიდი ბრიტანეთი (GPB £)</a></li>
+          </ul>
+        </div>
+        <div class="vr text-white"></div>
+      <!-- Header section -->
+  <div class="text-end small">
+  <span id="loginBtn" class="link">
+    <span class="login1">შესვლა</span> 
+    <span>/</span>
+    <span class="signup1">რეგისტრაცია</span>
+  </span><br />
+  <a href="#" class="link fw-bold my-account">ჩემი ანგარიში</a>
+  </div>
+
+<!-- Modal -->
+  <div id="loginModal" class="modal2">
+   <div class="modal2-content">
+    <span class="close" id="closeModal">&times;</span>
+    <h2>შესვლა / რეგისტრაცია</h2>
+
+    <form id="signupForm">
+      <h3>რეგისტრაცია</h3>
+      <input type="text" id="signupUsername" placeholder="Username" required />
+      <input type="email" id="signupEmail" placeholder="Email" required />
+      <input type="password" id="signupPassword" placeholder="Password" required />
+      <button type="submit">რეგისტრაცია</button>
+    </form>
+
+    <hr />
+
+    <form id="loginForm">
+      <h3>შესვლა</h3>
+      <input type="email" id="loginEmail" placeholder="Email" required />
+      <input type="password" id="loginPassword" placeholder="Password" required />
+      <button type="submit">შესვლა</button>
+    </form>
+   </div>
+ </div>
+
+ <!-- Account Popup -->
+  <div id="accountPopup" class="popup" style="display: none;">
+  <p>მოგესალმებით, <span id="displayUsername"></span>!</p>
+  </div>
+
+
+        <div class="vr text-white"></div>
+      <div class="cart-wrapper d-flex align-items-center gap-1">
+       <button id="clear-cart" class="btn btn-sm btn-outline-light cart-clear">წაშლა</button>
+       <i class="bi bi-cart" style="font-size: 1.4rem;"></i>
+       <span id="cart-count" class="badge cart-badge">0</span>
+     </div>
+      </div>
+    </div>
+  </div>
+ </div>
+ </div>
+
+<div class="container my-5">
+  <h2 class="text-center mb-4 products-text">
+    <a href="products.html" style="text-decoration: none; color: inherit;">
+      პროდუქტები
+    </a>
+  </h2>
+
+  <div id="product-list" class="d-flex flex-wrap justify-content-center"></div>
+</div>
+<script defer src="/js/script.js"></script>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="js/vue-app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+   document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const searchQuery = params.get("search");
+  const category = params.get("category");
+
+  if (searchQuery) {
+    loadProducts("", searchQuery);
+  } else if (category) {
+    loadProducts(category);
+  } else {
+    loadProducts();
+  }
+});
+
+</script>
+
+</body>
+</html>

@@ -9,6 +9,305 @@ function updateCountry(country, currency) {
 }
 
 // =======================================
+// 🌐 ენის გადართვა
+// =======================================
+const translations = {
+  ka: {
+    country_currency: "ქვეყანა/ვალუტა",
+    language: "ენა",
+    free_return: "უფასო დაბრუნება 30 დღის განმავლობაში!",
+    subscribe_newsletter: "გამოიწერეთ ჩვენი საინფორმაციო ბიულეტენი",
+    subscribed: "გამოწერილია",
+    search_products: "პროდუქტების ძიება...",
+    login: "შესვლა",
+    register: "რეგისტრაცია",
+    my_account: "ჩემი ანგარიში",
+    login_register: "შესვლა / რეგისტრაცია",
+    username: "მომხმარებელი",
+    email: "ელ.ფოსტა",
+    password: "პაროლი",
+    clear_cart: "წაშლა",
+    home: "მთავარი",
+    collection: "კოლექცია",
+    about_us: "ჩვენს შესახებ",
+    georgia: "საქართველო (GEL ლ)",
+    germany: "გერმანია (EUR €)",
+    usa: "ამერიკა (USD $)",
+    uk: "დიდი ბრიტანეთი (GPB £)",
+    read_more_content: "ონლაინ შოპინგის ხელახლა განსაზღვრის ხედვით დაარსებული <strong>Tech Market</strong>გახდა სანდო ადგილი მომხმარებლებისთვის, რომლებიც აფასებენ ინოვაციას, ხარისხსა და დიზაინს. ჩვენ გვჯერა, რომ მომავალი მათ ეკუთვნის, ვინც ტექნოლოგიას იყენებს — და ჩვენი მიზანია, რომ ეს მომავალი ყველასთვის ხელმისაწვდომი გავხადოთ.<br><br>ჩვენი კოლექციის ყველა პროდუქტი — ჭკვიანი მოწყობილობებიდან და აქსესუარებიდან  დაწყებული თანამედროვე ცხოვრების წესისთვის აუცილებელი ნივთებით დამთავრებული — საგულდაგულოდ არის შერჩეული, რაც უზრუნველყოფს მუშაობას, საიმედოობას და ინოვაციურ დიზაინს. ჩვენ ვთანამშრომლობთ წამყვან გლობალურ ბრენდებთან, რომლებიც იზიარებენ ჩვენს გატაცებას ინოვაციებისა და მომხმარებელთა კმაყოფილების მიმართ.<br><br>პროდუქტებს მიღმა, Tech Market წარმოადგენს მოაზროვნეების, შემქმნელებისა და ყოველდღიური მომხმარებლების საზოგადოებას, რომლებსაც სჯერათ,რომ ჩვენი ტექნოლოგიები ცხოვრებას გააუმჯობესებს. ჩვენი გუნდი მუდმივად აუმჯობესებს მომხმარებლის გამოცდილებას სწრაფი მიწოდების, უსაფრთხო გადახდების და რეაგირებადი მხარდაჭერის შეთავაზებით.<br><br><strong>Tech Market-ში ჩვენ მხოლოდ ტექნოლოგიებს არ ვყიდით — ჩვენ ადამიანებს უფრო ჭკვიანურ ცხოვრებასთან ვაკავშირებთ, შთაგონებასა და ინოვაციას ვაკავშირებთ.</strong>",
+    jbl_speaker: "JBL პორტის CLIP 5 დინამიკი",
+    store1_address: "76 აკაკი წერეთლის გამზირი, თბილისი",
+    weekdays_1: "ორშაბათი - პარასკევი: 09:00 - 20:00",
+    saturday_1: "შაბათი: 09:00 - 18:00",
+    store2_address: "26 ყაზბეგის გამზირი, თბილისი",
+    weekdays_2: "ორშაბათი - პარასკევი: 10:00 - 20:00",
+    saturday_2: "შაბათი: 11:00 - 21:00",
+    sunday: "კვირა: დაკეტილია",
+    in_stock_text: "● In stock, {number} quantity",
+    hurry_text: "● Hurry! Only {number} left",
+    hero1_title: "იგრძენით რიტმი ისე, როგორც არასდროს",
+    hero1_desc: "გაეცანით ჩვენს ბრენდულ ყურსასმენებს",
+    hero1_btn: "ყურსასმენების შეძენა",
+    hero2_title: "ახალი JBL პორტის დინამიკები",
+    hero2_desc: "აღმოაჩინეთ ახალი JBL ბრენდის დინამიკები",
+    hero2_btn: "დინამიკების შეძენა",
+    hero3_title: "წარმოგიდგენთ ახალი ბრენდის ტელევიზორებს",
+    hero3_desc: "აღმოაჩინეთ თქვენთვის სასურველი ტელევიზორები",
+    hero3_btn: "ტელევიზორების შეძენა",
+    welcome: "მოგესალმებით",
+    new_tvs: "ახალი ტელევიზორები",
+    new_tvs_desc: "ისარგებლეთ<strong>$100 დოლარამდე </strong>ფასდაკლებით ბოლო 4K მოდელებზე.<br><strong>რაოდენობა შეზღუდულია</strong>.",
+    buy_tvs: "ტელევიზორები",
+    headphones: "ყურსასმენები",
+    headphones_desc: "გამოსცადეთ ჩვენი ყურსასმენები პრემიუმ კლასის ჟღერადობით, შექმნილია მუსიკის მოყვარულთათვის.",
+    buy_headphones: "ყურსასმენები",
+    speakers: "დინამიკები",
+    speakers_desc: "აღმოაჩინეთ ჩვენს მიერ შემოთავაზებული მაღალი კლასის დინამიკები",
+    buy_speakers: "დინამიკები",
+    our_collection: "ჩვენი კოლექცია",
+    view_all: "ყველას დათვალიერება",
+    android_tvs: "Android ტელევიზორები",
+    gaming_headphones: "Gaming ყურსასმენები",
+    bluetooth_speakers: "Bluetooth დინამიკები",
+    smart_tvs: "Smart ტელევიზორები",
+    music_unites: "მუსიკა გვაერთიანებს",
+    music_desc: "განიცადე უსაზღვრო სიამოვნება მუსიკის მოსმენით",
+    shop_now: "შეიძინეთ ახლავე",
+    new_brand_tvs: "ახალი ბრენდის ტელევიზორები",
+    tvs_desc: "შთამბეჭდავი ვიზუალებით და გრაფიკით აღფრთოვანებული დარჩებით",
+    about_techmarket: "Tech Market-ის შესახებ",
+    about_text: "<strong>Tech Market-ში </strong>გვსურს, ტექნოლოგიებისა და ცხოვრების სტილის პროდუქტების უახლესი ინოვაციები პირდაპირ თქვენს ხელში მოგაწოდოთ.ჩვენი მოგზაურობა მარტივი იდეით დაიწყო - მოწინავე ტექნოლოგიები ყველასთვის ხელმისაწვდომი, საიმედო და შთამაგონებელი გაგვეხადა.მძლავრი სმარტფონებიდან და ლეპტოპებიდან დაწყებული, ჭკვიანი სახლის მოწყობილობებითა და ყოველდღიური აქსესუარებით დამთავრებული, ჩვენ ვცდილობთ შემოგთავაზოთ პროდუქტები, რომლებიც აერთიანებს თანამედროვე დიზაინს, ხანგრძლივად მუშაობას და მდგრად ხარისხს.",
+    read_more: "წაიკითხეთ მეტი",
+    close: "დახურვა",
+    our_brands: "ჩვენი ბრენდები",
+    view_all_brands: "ყველა ბრენდის ნახვა",
+    all_brands: "ყველა ბრენდი",
+    new_tvs_title: "ახალი ტელევიზორები",
+    new_tvs_subtitle: "აღმოაჩინეთ ტოპ ხარისხის მოდელების ტელევიზორები, რეკომენდებულია ნამდვილი პროფესიონალების მიერ",
+    buy_tvs_now: "ტელევიზორების შეძენა",
+    in_stock: "მარაგშია",
+    hurry: "იჩქარეთ",
+    left: "დარჩა",
+    most_demanded: "ყველაზე მოთხოვნადი პროდუქტი",
+    zoom_hint: "დააკვირდი გამოსახულებას უკეთესად",
+    color: "ფერი",
+    price: "ფასი",
+    add_to_cart: "კალათაში დამატება",
+    our_stores: "ჩვენი მაღაზიები",
+    visit_main_branch: "ეწვიეთ ჩვენ მთავარ ფილიალს",
+    our_second_branch: "ჩვები მეორე ფილიალი",
+    show_directions: "მიმართულებების ჩვენება",
+    most_searched: "ყველაზე ხშირად მოძიებული პროდუქტები",
+    free_delivery: "უფასო მიტანის სერვისი $1000+ შეკვეთებზე",
+    delivery_desc: "We deliver in 48 hours max!",
+    satisfaction: "კმაყოფილების განცდა ან უკან დაბრუნება და ანაზღაურება",
+    return_desc: "უფასო დაბრუნება 14 დღეში!",
+    support: "ხელმისაწვდომები ვართ 24/7ზე",
+    support_desc: "დაგვიკავშირდით ფოსტაზე, ან მობილურ ტელეფონზე",
+    secure_payment: "100% დაცული გადახდა",
+    payment_desc: "Visa, Mastercard, Amex, PayPal",
+    additional_info: "დამატებითი ინფორმაცია",
+    additional_text: "ისარგებლეთ ონლაინ შოპინგით ჩვენ ვებ-გვერდზე ან ესტუმრეთ ჩვენს ფილიალებს თბილისში, სადაც ჩვენი პროფესიონალი გუნდი დაგეხმარებათ საუკეთესო პროდუქტის არჩევაში.",
+    sponsors: "მადლობა ჩვენს სპონსორებს",
+    copyright: "© 2025 Tech Market<br>Powered by Google",
+    popular_collection: "პოპულარული კოლექცია",
+    speakers_list: "დინამიკები",
+    audio_devices: "Audio მოწყობილობები",
+    headphones_list: "ყურსასმენები",
+    mini_studio: "მინი სტუდია",
+    gaming_headphones_list: "Gaming ყურსასმენები",
+    branded_tvs: "ბრენდული ტელევიზორები",
+    more_info: "შემდეგი ინფორმაცია",
+    more_info_text: "Tech Market წარმოადგენს თანამედროვე ონლაინ მაღაზიას, სადაც შეგხვდებათ მაღალი ხარისხის ტექნიკა — ყურსასმენები, დინამიკები, ტელევიზორები და სხვა სმარტ მოწყობილობები. ჩვენი მიზანია მომხმარებელს შევთავაზოთ საუკეთესო ფასები, სწრაფი მიწოდება და კომფორტული მომსახურება.",
+    newsletter: "საინფორმაციო ბიულეტენი",
+    newsletter_desc: "გამოიწერეთ ბიულეტენი რომ არ გამოგეპაროთ სიახლეები ახალ პროდუქტებზე.",
+    your_email: "Your email",
+    subscribe: "გამოწერა",
+    accepted: "ჩვენთვის მისაღებია",
+    products: "პროდუქტები"
+  },
+  en: {
+    country_currency: "Country/Currency",
+    language: "Language",
+    free_return: "Free return within 30 days!",
+    subscribe_newsletter: "Subscribe to our newsletter",
+    subscribed: "Subscribed",
+    search_products: "Search for products...",
+    login: "Login",
+    register: "Register",
+    my_account: "My Account",
+    login_register: "Login / Register",
+    username: "Username",
+    email: "Email",
+    password: "Password",
+    clear_cart: "Clear Cart",
+    hero1_title: "Feel the rhythm like never before",
+    hero1_desc: "Discover our branded headphones",
+    hero1_btn: "Buy Headphones",
+    hero2_title: "New JBL Portable Speakers",
+    hero2_desc: "Discover new JBL brand speakers",
+    hero2_btn: "Buy Speakers",
+    hero3_title: "Introducing new brand TVs",
+    hero3_desc: "Discover the TVs you desire",
+    hero3_btn: "Buy TVs",
+    welcome: "Welcome",
+    new_tvs: "New TVs",
+    new_tvs_desc: "Enjoy <strong>up to $100 </strong>off on the latest 4K models.<br><strong>Limited quantity</strong>.",
+    buy_tvs: "TVs",
+    headphones: "Headphones",
+    headphones_desc: "Try our headphones with premium sound quality, designed for music lovers.",
+    buy_headphones: "Headphones",
+    speakers: "Speakers",
+    speakers_desc: "Discover the high-class speakers we offer",
+    buy_speakers: "Speakers",
+    our_collection: "Our Collection",
+    view_all: "View All",
+    android_tvs: "Android TVs",
+    gaming_headphones: "Gaming Headphones",
+    bluetooth_speakers: "Bluetooth Speakers",
+    smart_tvs: "Smart TVs",
+    music_unites: "Music Unites Us",
+    music_desc: "Experience unlimited pleasure listening to music",
+    shop_now: "Shop Now",
+    new_brand_tvs: "New Brand TVs",
+    tvs_desc: "You will be amazed by impressive visuals and graphics",
+    about_techmarket: "About Tech Market",
+    about_text: "<strong>At Tech Market</strong>, we want to deliver the latest innovations in technology and lifestyle products directly into your hands. Our journey started with a simple idea - advanced technologies accessible, reliable and inspiring to everyone. From powerful smartphones and laptops to smart home devices and everyday accessories, we strive to offer products that combine modern design, long-lasting performance and sustainable quality.",
+    read_more: "Read More",
+    close: "Close",
+    our_brands: "Our Brands",
+    view_all_brands: "View All Brands",
+    all_brands: "All Brands",
+    new_tvs_title: "New TVs",
+    new_tvs_subtitle: "Discover top-quality TV models recommended by real professionals",
+    buy_tvs_now: "Buy TVs",
+    in_stock: "მარაგშია",
+    hurry: "იჩქარეთ",
+    left: "დარჩა",
+    quantity: "რაოდენობა",
+    most_demanded: "Most Demanded Product",
+    zoom_hint: "Look at the image better",
+    color: "Color",
+    price: "Price",
+    add_to_cart: "Add to Cart",
+    our_stores: "Our Stores",
+    visit_main_branch: "Visit Our Main Branch",
+    our_second_branch: "Our Second Branch",
+    show_directions: "Show Directions",
+    most_searched: "Most Searched Products",
+    free_delivery: "Free Delivery Service on Orders $1000+",
+    delivery_desc: "We deliver in 48 hours max!",
+    satisfaction: "Satisfaction Guarantee or Return and Refund",
+    return_desc: "Free return within 14 days!",
+    support: "We are available 24/7",
+    support_desc: "Contact us by email or mobile phone",
+    secure_payment: "100% Secure Payment",
+    payment_desc: "Visa, Mastercard, Amex, PayPal",
+    additional_info: "Additional Information",
+    additional_text: "Take advantage of online shopping on our website or visit our branches in Tbilisi, where our professional team will help you choose the best product.",
+    sponsors: "Thanks to our sponsors",
+    copyright: "© 2025 Tech Market<br>Powered by Google",
+    popular_collection: "Popular Collection",
+    speakers_list: "Speakers",
+    audio_devices: "Audio Devices",
+    headphones_list: "Headphones",
+    mini_studio: "Mini Studio",
+    gaming_headphones_list: "Gaming Headphones",
+    branded_tvs: "Branded TVs",
+    more_info: "More Information",
+    more_info_text: "Tech Market is a modern online store where you will find high-quality technology - headphones, speakers, TVs and other smart devices. Our goal is to offer customers the best prices, fast delivery and comfortable service.",
+    newsletter: "Newsletter",
+    newsletter_desc: "Subscribe to the newsletter so you don't miss out on news about new products.",
+    your_email: "Your email",
+    subscribe: "Subscribe",
+    accepted: "Accepted by us",
+    products: "Products",
+    home: "Home",
+    collection: "Collection",
+    about_us: "About Us",
+    georgia: "Georgia (GEL ₾)",
+    germany: "Germany (EUR €)",
+    usa: "USA (USD $)",
+    uk: "UK (GBP £)",
+    read_more_content: "Founded with a vision to redefine online shopping, <strong>Tech Market</strong> has become a trusted destination for customers who value innovation, quality, and design. We believe the future belongs to those who use technology—and our mission is to make that future accessible to everyone.<br><br>All products in our collection—from smart devices and accessories to essentials for modern living—are carefully selected to ensure performance, reliability, and innovative design. We collaborate with leading global brands that share our passion for innovation and customer satisfaction.<br><br>Beyond products, Tech Market represents a community of thinkers, creators, and everyday users who believe our technologies will improve lives. Our team continuously improves the customer experience with fast delivery, secure payments, and responsive support.<br><br><strong>At Tech Market, we don't just sell technology—we connect people with smarter living, inspiration, and innovation.</strong>",
+    jbl_speaker: "JBL CLIP 5 Portable Speaker",
+    store1_address: "76 Akaki Tsereteli Avenue, Tbilisi",
+    weekdays_1: "Monday - Friday: 09:00 - 20:00",
+    saturday_1: "Saturday: 09:00 - 18:00",
+    store2_address: "26 Kazbegi Avenue, Tbilisi",
+    weekdays_2: "Monday - Friday: 10:00 - 20:00",
+    saturday_2: "Saturday: 11:00 - 21:00",
+    sunday: "Sunday: Closed",
+    in_stock_text: "● In stock, {number} quantity",
+    hurry_text: "● Hurry! Only {number} left"
+  }
+};
+
+function changeLanguage(lang) {
+  localStorage.setItem('selectedLanguage', lang);
+  applyTranslations(lang);
+  updateLangButton(lang);
+}
+
+function applyTranslations(lang) {
+  const trans = translations[lang];
+  if (!trans) return;
+
+  // Update elements with data-translate
+  document.querySelectorAll('[data-translate]').forEach(el => {
+    const key = el.getAttribute('data-translate');
+    if (trans[key]) {
+      let translation = trans[key];
+      
+      // Handle placeholder replacements for stock texts
+      if (key === 'in_stock_text' || key === 'hurry_text') {
+        // Extract number from original text
+        const originalText = el.textContent;
+        const numberMatch = originalText.match(/(\d+)/);
+        if (numberMatch) {
+          translation = translation.replace('{number}', numberMatch[1]);
+        }
+      }
+      
+      // Check if translation contains HTML tags
+      if (translation.includes('<') && translation.includes('>')) {
+        el.innerHTML = translation;
+      } else {
+        el.textContent = translation;
+      }
+    }
+  });
+
+  // Update placeholders
+  document.querySelectorAll('[data-translate-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-translate-placeholder');
+    if (trans[key]) {
+      el.placeholder = trans[key];
+    }
+  });
+
+  // Update html lang attribute
+  document.documentElement.lang = lang;
+}
+
+function updateLangButton(lang) {
+  const btn = document.getElementById('lang-btn');
+  if (btn) {
+    const strong = btn.querySelector('strong');
+    if (strong) {
+      strong.textContent = lang === 'ka' ? 'ქართული' : 'English';
+    }
+  }
+}
+
+// Initialize language on page load
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('selectedLanguage') || 'ka';
+  applyTranslations(savedLang);
+  updateLangButton(savedLang);
+});
+
+// =======================================
 // 🎧 HERO კარუსელის გადაფურცვლა (მხოლოდ ინდექსი)
 // =======================================
 document.addEventListener("DOMContentLoaded", () => {
@@ -585,21 +884,28 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!navMenu || !toggler || !window.bootstrap) return;
 
   navMenu.classList.add("fade-enabled");
-  const bsCollapse = new bootstrap.Collapse(navMenu, { toggle: false });
 
-  toggler.addEventListener("click", () => {
-    if (navMenu.classList.contains("show")) {
-      navMenu.classList.add("is-fading");
-      const onEnd = (ev) => {
-        if (ev.propertyName !== "opacity") return;
-        navMenu.removeEventListener("transitionend", onEnd);
-        navMenu.classList.remove("is-fading");
-        bsCollapse.hide();
-      };
-      navMenu.addEventListener("transitionend", onEnd);
-    } else {
-      bsCollapse.show();
-    }
+  // Create Bootstrap collapse instance with toggle enabled
+  const bsCollapse = new bootstrap.Collapse(navMenu, {
+    toggle: false
+  });
+
+  // Handle hamburger button clicks - use Bootstrap's built-in toggle
+  toggler.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    // Simply toggle the collapse
+    bsCollapse.toggle();
+  });
+
+  // Handle fade animation for closing
+  navMenu.addEventListener('hide.bs.collapse', () => {
+    navMenu.classList.add("is-fading");
+  });
+
+  navMenu.addEventListener('hidden.bs.collapse', () => {
+    navMenu.classList.remove("is-fading");
   });
 });
 

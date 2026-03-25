@@ -24,12 +24,12 @@
   <!-- Top Bar -->
   <div class="top-bar py-1 top-header">
     <div class="container d-flex justify-content-between align-items-center">
-      <span class="shipping-msg">უფასო დაბრუნება 30 დღეში!</span>
+      <span class="shipping-msg" data-translate="free_return">უფასო დაბრუნება 30 დღეში!</span>
       <button class="btn btn-sm subscribe-btn">
-  <i class="bi bi-envelope"></i> გამოიწერეთ ჩვენი საინფორმაციო ბიულეტენი
+  <i class="bi bi-envelope"></i> <span data-translate="subscribe_newsletter">გამოიწერეთ ჩვენი საინფორმაციო ბიულეტენი</span>
 </button>
 <span id="subscribe-status" class="text-success ms-2" style="display: none;">
-  <i class="bi bi-check-circle"></i> გამოწერილია
+  <i class="bi bi-check-circle"></i> <span data-translate="subscribed">გამოწერილია</span>
 </span>
     </div>
   </div>
@@ -47,7 +47,7 @@
 
       <!-- Search Bar -->
      <div class="input-group w-50">
-      <input type="text" class="form-control" id="searchInput" placeholder="Search for products...">
+      <input type="text" class="form-control" id="searchInput" data-translate-placeholder="search_products" placeholder="Search for products...">
       <button class="btn search-btn" id="searchButton">
       <i class="bi bi-search"></i>
       </button>
@@ -58,56 +58,66 @@
       <!-- Country / Account / Cart -->
       <div class="d-flex align-items-center gap-3 text-white">
         <div class="dropdown text-end small">
-          <span>ქვეყანა/ვალუტა</span><br>
+          <span data-translate="country_currency">ქვეყანა/ვალუტა</span><br>
           <button id="country-btn" class="btn btn-sm text-white dropdown-toggle p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <strong>საქართველო (GEL ლ)</strong>
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#" onclick="updateCountry('Georgia', 'GEL ლ')">საქართველო (GEL ლ)</a></li>
-            <li><a class="dropdown-item" href="#" onclick="updateCountry('Germany', 'EUR €')">გერმანია (EUR €)</a></li>
-            <li><a class="dropdown-item" href="#" onclick="updateCountry('USA', 'USD $')">ამერიკა (USD $)</a></li>
-            <li><a class="dropdown-item" href="#" onclick="updateCountry('UK', 'GBP £')">დიდი ბრიტანეთი (GPB £)</a></li>
+            <li><a class="dropdown-item" href="#" onclick="updateCountry('Georgia', 'GEL ლ')" data-translate="georgia">საქართველო (GEL ლ)</a></li>
+            <li><a class="dropdown-item" href="#" onclick="updateCountry('Germany', 'EUR €')" data-translate="germany">გერმანია (EUR €)</a></li>
+            <li><a class="dropdown-item" href="#" onclick="updateCountry('USA', 'USD $')" data-translate="usa">ამერიკა (USD $)</a></li>
+            <li><a class="dropdown-item" href="#" onclick="updateCountry('UK', 'GBP £')" data-translate="uk">დიდი ბრიტანეთი (GPB £)</a></li>
+          </ul>
+        </div>
+        <div class="dropdown text-end small">
+          <span data-translate="language">ენა</span><br>
+          <button id="lang-btn" class="btn btn-sm text-white dropdown-toggle p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <strong>ქართული</strong>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#" onclick="changeLanguage('ka')">ქართული</a></li>
+            <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')">English</a></li>
           </ul>
         </div>
         <div class="vr text-white"></div>
       <!-- Header section -->
   <div class="text-end small">
   <span id="loginBtn" class="link">
-    <span class="login1">შესვლა</span> 
+    <span class="login1" data-translate="login">შესვლა</span> 
     <span>/</span>
-    <span class="signup1">რეგისტრაცია</span>
+    <span class="signup1" data-translate="register">რეგისტრაცია</span>
   </span><br />
-  <a href="#" class="link fw-bold my-account">ჩემი ანგარიში</a>
+  <a href="#" class="link fw-bold my-account" data-translate="my_account">ჩემი ანგარიში</a>
   </div>
 
 <!-- Modal -->
   <div id="loginModal" class="modal2">
    <div class="modal2-content">
     <span class="close" id="closeModal">&times;</span>
-    <h2>შესვლა / რეგისტრაცია</h2>
+    <h2 data-translate="login_register">შესვლა / რეგისტრაცია</h2>
 
     <form id="signupForm">
-      <h3>რეგისტრაცია</h3>
-      <input type="text" id="signupUsername" placeholder="Username" required />
-      <input type="email" id="signupEmail" placeholder="Email" required />
-      <input type="password" id="signupPassword" placeholder="Password" required />
-      <button type="submit">რეგისტრაცია</button>
+      <h3 data-translate="register">რეგისტრაცია</h3>
+      <input type="text" id="signupUsername" data-translate-placeholder="username" placeholder="Username" required />
+      <input type="email" id="signupEmail" data-translate-placeholder="email" placeholder="Email" required />
+      <input type="password" id="signupPassword" data-translate-placeholder="password" placeholder="Password" required />
+      <button type="submit" data-translate="register">რეგისტრაცია</button>
     </form>
 
     <hr />
 
     <form id="loginForm">
-      <h3>შესვლა</h3>
-      <input type="email" id="loginEmail" placeholder="Email" required />
-      <input type="password" id="loginPassword" placeholder="Password" required />
-      <button type="submit">შესვლა</button>
+      <h3 data-translate="login">შესვლა</h3>
+      <input type="email" id="loginEmail" data-translate-placeholder="email" placeholder="Email" required />
+      <input type="password" id="loginPassword" data-translate-placeholder="password" placeholder="Password" required />
+      <button type="submit" data-translate="login">შესვლა</button>
     </form>
    </div>
  </div>
 
  <!-- Account Popup -->
   <div id="accountPopup" class="popup" style="display: none;">
-  <p>მოგესალმებით, <span id="displayUsername"></span>!</p>
+  <p><span data-translate="welcome">მოგესალმებით</span>, <span id="displayUsername"></span>!</p>
   </div>
 
 
@@ -124,7 +134,7 @@
  </div>
 
 <div class="container my-5">
-  <h2 class="text-center mb-4 products-text">
+  <h2 class="text-center mb-4 products-text" data-translate="products">
     <a href="products.html" style="text-decoration: none; color: inherit;">
       პროდუქტები
     </a>

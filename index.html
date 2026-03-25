@@ -23,12 +23,12 @@
   <!-- Top Bar -->
   <div class="top-bar py-1 top-header">
     <div class="container d-flex justify-content-between align-items-center">
-      <span class="shipping-msg">უფასო დაბრუნება 30 დღის განმავლობაში!</span>
+      <span class="shipping-msg" data-translate="free_return">უფასო დაბრუნება 30 დღის განმავლობაში!</span>
       <button class="btn btn-sm subscribe-btn">
-  <i class="bi bi-envelope"></i> გამოიწერეთ ჩვენი საინფორმაციო ბიულეტენი
+  <i class="bi bi-envelope"></i> <span data-translate="subscribe_newsletter">გამოიწერეთ ჩვენი საინფორმაციო ბიულეტენი</span>
 </button>
 <span id="subscribe-status" class="text-success ms-2" style="display: none;">
-  <i class="bi bi-check-circle"></i> გამოწერილია
+  <i class="bi bi-check-circle"></i> <span data-translate="subscribed">გამოწერილია</span>
 </span>
     </div>
   </div>
@@ -45,7 +45,7 @@
 
       <!-- საძიებო ველი -->
      <div class="input-group w-50">
-      <input type="text" class="form-control" id="searchInput" placeholder="პროდუქტების ძიება...">
+      <input type="text" class="form-control" id="searchInput" data-translate-placeholder="search_products" placeholder="პროდუქტების ძიება...">
       <button class="btn search-btn" id="searchButton">
       <i class="bi bi-search"></i>
       </button>
@@ -56,59 +56,69 @@
       <!-- ქვეყანა / ანგარიში / კალათა -->
       <div class="d-flex align-items-center gap-3 text-white">
         <div class="dropdown text-end small">
-          <span>ქვეყანა/ვალუტა</span><br>
+          <span data-translate="country_currency">ქვეყანა/ვალუტა</span><br>
           <button id="country-btn" class="btn btn-sm text-white dropdown-toggle p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <strong>საქართველო (GEL ლ)</strong>
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#" onclick="updateCountry('Georgia', 'GEL ლ')">საქართველო (GEL ლ)</a></li>
-            <li><a class="dropdown-item" href="#" onclick="updateCountry('Germany', 'EUR €')">გერმანია (EUR €)</a></li>
-            <li><a class="dropdown-item" href="#" onclick="updateCountry('USA', 'USD $')">ამერიკა (USD $)</a></li>
-            <li><a class="dropdown-item" href="#" onclick="updateCountry('UK', 'GBP £')">დიდი ბრიტანეთი (GPB £)</a></li>
+            <li><a class="dropdown-item" href="#" onclick="updateCountry('Georgia', 'GEL ლ')" data-translate="georgia">საქართველო (GEL ლ)</a></li>
+            <li><a class="dropdown-item" href="#" onclick="updateCountry('Germany', 'EUR €')" data-translate="germany">გერმანია (EUR €)</a></li>
+            <li><a class="dropdown-item" href="#" onclick="updateCountry('USA', 'USD $')" data-translate="usa">ამერიკა (USD $)</a></li>
+            <li><a class="dropdown-item" href="#" onclick="updateCountry('UK', 'GBP £')" data-translate="uk">დიდი ბრიტანეთი (GPB £)</a></li>
+          </ul>
+        </div>
+        <div class="dropdown text-end small">
+          <span data-translate="language">ენა</span><br>
+          <button id="lang-btn" class="btn btn-sm text-white dropdown-toggle p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <strong>ქართული</strong>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#" onclick="changeLanguage('ka')">ქართული</a></li>
+            <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')">English</a></li>
           </ul>
         </div>
         <div class="vr text-white"></div>
       <!-- Header section -->
   <div class="text-end small">
   <span id="loginBtn" class="link">
-    <span class="login1">შესვლა</span> 
+    <span class="login1" data-translate="login">შესვლა</span> 
     <span>/</span>
-    <span class="signup1">რეგისტრაცია</span>
+    <span class="signup1" data-translate="register">რეგისტრაცია</span>
   </span><br />
-  <a href="#" class="link fw-bold my-account">ჩემი ანგარიში</a>
+  <a href="#" class="link fw-bold my-account" data-translate="my_account">ჩემი ანგარიში</a>
   </div>
 
 <!-- Modal -->
   <div id="loginModal" class="modal2">
    <div class="modal2-content">
     <span class="close" id="closeModal">&times;</span>
-    <h2>შესვლა / რეგისტრაცია</h2>
+    <h2 data-translate="login_register">შესვლა / რეგისტრაცია</h2>
 
     <form id="signupForm">
-      <h3>რეგისტრაცია</h3>
-      <input type="text" id="signupUsername" placeholder="Username" required />
-      <input type="email" id="signupEmail" placeholder="Email" required />
-      <input type="password" id="signupPassword" placeholder="Password" required />
-      <button type="submit">რეგისტრაცია</button>
+      <h3 data-translate="register">რეგისტრაცია</h3>
+      <input type="text" id="signupUsername" data-translate-placeholder="username" placeholder="Username" required />
+      <input type="email" id="signupEmail" data-translate-placeholder="email" placeholder="Email" required />
+      <input type="password" id="signupPassword" data-translate-placeholder="password" placeholder="Password" required />
+      <button type="submit" data-translate="register">რეგისტრაცია</button>
     </form>
 
     <hr />
 
     <form id="loginForm">
-      <h3>შესვლა</h3>
-      <input type="email" id="loginEmail" placeholder="Email" required />
-      <input type="password" id="loginPassword" placeholder="Password" required />
-      <button type="submit">შესვლა</button>
+      <h3 data-translate="login">შესვლა</h3>
+      <input type="email" id="loginEmail" data-translate-placeholder="email" placeholder="Email" required />
+      <input type="password" id="loginPassword" data-translate-placeholder="password" placeholder="Password" required />
+      <button type="submit" data-translate="login">შესვლა</button>
     </form>
    </div>
  </div>
                   <!-- Account Popup -->
                 <div id="accountPopup" class="popup" style="display: none;">
-                 <p>მოგესალმებით, <span id="displayUsername"></span>!</p>
+                 <p><span data-translate="welcome">მოგესალმებით</span>, <span id="displayUsername"></span>!</p>
                 </div>
               <div class="vr text-white"></div>
             <div class="cart-wrapper d-flex align-items-center gap-1">
-              <button id="clear-cart" class="btn btn-sm btn-outline-light cart-clear">წაშლა</button>
+              <button id="clear-cart" class="btn btn-sm btn-outline-light cart-clear" data-translate="clear_cart">წაშლა</button>
               <i class="bi bi-cart" style="font-size: 1.4rem;"></i>
               <span id="cart-count" class="badge cart-badge">0</span>
             </div>
@@ -130,14 +140,14 @@
          <!-- Collapsible Menu -->
          <div class="collapse navbar-collapse justify-content-center" id="navMenu">
            <ul class="navbar-nav text-center gap-4 py-3 py-md-0">
-             <li class="nav-item"><a class="nav-link active" href="index.html">მთავარი</a></li>
-             <li class="nav-item"><a class="nav-link" href="#our_collections">კოლექცია</a></li>
-             <li class="nav-item"><a class="nav-link" href="#about_us">ჩვენს შესახებ</a></li>
+             <li class="nav-item"><a class="nav-link active" href="index.html" data-translate="home">მთავარი</a></li>
+             <li class="nav-item"><a class="nav-link" href="#our_collections" data-translate="collection">კოლექცია</a></li>
+             <li class="nav-item"><a class="nav-link" href="#about_us" data-translate="about_us">ჩვენს შესახებ</a></li>
            </ul>
 
            <!-- SEARCHBAR (mobile only) -->
            <div class="input-group w-75 mx-auto mb-3 d-md-none">
-             <input type="text" class="form-control" id="searchInputMobile" placeholder="პროდუქტების ძიება...">
+              <input type="text" class="form-control" id="searchInputMobile" data-translate-placeholder="search_products" placeholder="პროდუქტების ძიება...">
              <button class="btn search-btn" id="searchButtonMobile">
                <i class="bi bi-search"></i>
              </button>
@@ -158,9 +168,9 @@
           style="background-image: url('images/headphones-slider.jpg'); background-size: cover; background-position: center; height: 80vh;"
         >
           <div class="carousel-content mb-5 first-hero">
-            <h2 class="fw-bold display-5">იგრძენით რიტმი ისე, როგორც არასდროს</h2>
-            <p class="lead">გაეცანით ჩვენს ბრენდულ ყურსასმენებს</p>
-            <a href="products.html?category=headphones" class="btn btn-light btn-lg mt-3">ყურსასმენების შეძენა</a>
+            <h2 class="fw-bold display-5" data-translate="hero1_title">იგრძენით რიტმი ისე, როგორც არასდროს</h2>
+            <p class="lead" data-translate="hero1_desc">გაეცანით ჩვენს ბრენდულ ყურსასმენებს</p>
+            <a href="products.html?category=headphones" class="btn btn-light btn-lg mt-3" data-translate="hero1_btn">ყურსასმენების შეძენა</a>
           </div>
         </div>
       </div>
@@ -172,9 +182,9 @@
           style="background-image: url('images/best-jbl-speakers-slider.jpg'); background-size: cover; background-position: center; height: 80vh;"
         >
           <div class="carousel-content mb-5">
-            <h2 class="fw-bold display-5">ახალი JBL პორტის დინამიკები</h2>
-            <p class="lead">აღმოაჩინეთ ახალი JBL ბრენდის დინამიკები</p>
-            <a href="products.html?category=speakers" class="btn btn-light btn-lg mt-3">დინამიკების შეძენა</a>
+            <h2 class="fw-bold display-5" data-translate="hero2_title">ახალი JBL პორტის დინამიკები</h2>
+            <p class="lead" data-translate="hero2_desc">აღმოაჩინეთ ახალი JBL ბრენდის დინამიკები</p>
+            <a href="products.html?category=speakers" class="btn btn-light btn-lg mt-3" data-translate="hero2_btn">დინამიკების შეძენა</a>
           </div>
         </div>
       </div>
@@ -186,9 +196,9 @@
           style="background-image: url('images/tv-slider.jpg'); background-size: cover; background-position: center; height: 80vh;"
         >
           <div class="carousel-content mb-5">
-            <h2 class="fw-bold display-5">წარმოგიდგენთ ახალი ბრენდის ტელევიზორებს</h2>
-            <p class="lead">აღმოაჩინეთ თქვენთვის სასურველი ტელევიზორები</p>
-            <a href="products.html?category=tvs" class="btn btn-light btn-lg mt-3">ტელევიზორების შეძენა</a>
+            <h2 class="fw-bold display-5" data-translate="hero3_title">წარმოგიდგენთ ახალი ბრენდის ტელევიზორებს</h2>
+            <p class="lead" data-translate="hero3_desc">აღმოაჩინეთ თქვენთვის სასურველი ტელევიზორები</p>
+            <a href="products.html?category=tvs" class="btn btn-light btn-lg mt-3" data-translate="hero3_btn">ტელევიზორების შეძენა</a>
           </div>
         </div>
       </div>
@@ -211,12 +221,12 @@
             <!-- TVs -->
              <div class="col-md-4">
                <div class="custom-card" style="background-color: #f7c40b;">
-                 <h4>ახალი ტელევიზორები</h4>
-                 <p>
+                 <h4 data-translate="new_tvs">ახალი ტელევიზორები</h4>
+                 <p data-translate="new_tvs_desc">
                    ისარგებლეთ<strong>$100 დოლარამდე </strong>ფასდაკლებით ბოლო 4K მოდელებზე.<br>
                   <strong>რაოდენობა შეზღუდულია</strong>.
                  </p>
-                 <a href="products.html?category=tvs" class="btn btn-light text-danger fw-bold">ტელევიზორები</a>
+                 <a href="products.html?category=tvs" class="btn btn-light text-danger fw-bold" data-translate="buy_tvs">ტელევიზორები</a>
                  <span style="display:inline-block;">
                    <img src="images/image1.png" alt="TVs">
                  </span>
@@ -226,12 +236,12 @@
              <!-- Headphones -->
              <div class="col-md-4">
                <div class="custom-card" style="background-color: #015ae0;">
-                 <h4>ყურსასმენები</h4>
-                 <p>
+                 <h4 data-translate="headphones">ყურსასმენები</h4>
+                 <p data-translate="headphones_desc">
                    გამოსცადეთ ჩვენი ყურსასმენები პრემიუმ კლასის ჟღერადობით, შექმნილია
                    მუსიკის მოყვარულთათვის.
                  </p>
-                 <a href="products.html?category=headphones" class="btn btn-light text-info fw-bold">ყურსასმენები</a>
+                 <a href="products.html?category=headphones" class="btn btn-light text-info fw-bold" data-translate="buy_headphones">ყურსასმენები</a>
                  <img src="images/headphones.png" alt="Headphones">
                </div>
              </div>
@@ -239,11 +249,11 @@
              <!-- Speakers -->
              <div class="col-md-4">
                <div class="custom-card" style="background-color:#00cc7b;">
-                 <h4>დინამიკები</h4>
-                 <p>
+                 <h4 data-translate="speakers">დინამიკები</h4>
+                 <p data-translate="speakers_desc">
                    აღმოაჩინეთ ჩვენს მიერ შემოთავაზებული მაღალი კლასის დინამიკები
                  </p>
-                 <a href="products.html?category=speakers" class="btn btn-light text-primary fw-bold">დინამიკები</a>
+                 <a href="products.html?category=speakers" class="btn btn-light text-primary fw-bold" data-translate="buy_speakers">დინამიკები</a>
                  <img src="images/speaker.png" alt="Speakers">
                </div>
                </div>
@@ -255,8 +265,8 @@
  <div class="collection-section" id="our_collections">
     <div class="container py-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
-          <h3 class="fw-bold">ჩვენი კოლექცია</h3>
-          <a href="products.html" class="text-decoration-none fw-semibold text-primary">ყველას დათვალიერება</a>
+          <h3 class="fw-bold" data-translate="our_collection">ჩვენი კოლექცია</h3>
+          <a href="products.html" class="text-decoration-none fw-semibold text-primary" data-translate="view_all">ყველას დათვალიერება</a>
           
         </div>
         <div id="collectionCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -266,19 +276,19 @@
                 <!-- Collection Item -->
                 <div class="collection-item text-center">
                   <img src="https://pcshop.ge/wp-content/uploads/I34076-300x300.jpg" class="rounded-circle collection-img" alt="Headphones">
-                  <div class="collection-caption">Android ტელევიზორები</div>
+                  <div class="collection-caption" data-translate="android_tvs">Android ტელევიზორები</div>
                 </div>
                 <div class="collection-item text-center">
                   <img src="https://pcshop.ge/wp-content/uploads/I33633.jpg" class="rounded-circle collection-img" alt="Earbuds">
-                  <div class="collection-caption">Gaming ყურსასმენები</div>
+                  <div class="collection-caption" data-translate="gaming_headphones">Gaming ყურსასმენები</div>
                 </div>
                 <div class="collection-item text-center">
                   <img src="https://pcshop.ge/wp-content/uploads/I32492-300x300.jpg" class="rounded-circle collection-img" alt="Speakers">
-                  <div class="collection-caption">Bluetooth დინამიკები</div>
+                  <div class="collection-caption" data-translate="bluetooth_speakers">Bluetooth დინამიკები</div>
                 </div>
                 <div class="collection-item text-center">
                   <img src="https://pcshop.ge/wp-content/uploads/I33360-300x300.jpg" class="rounded-circle collection-img" alt="OLED TVs">
-                  <div class="collection-caption">Smart ტელევიზორები</div>
+                  <div class="collection-caption" data-translate="smart_tvs">Smart ტელევიზორები</div>
                 </div>
               </div>
             </div>
@@ -288,19 +298,19 @@
               <div class="d-flex justify-content-center gap-4 flex-wrap">
                <div class="collection-item text-center">
                   <img src="https://pcshop.ge/wp-content/uploads/2025/09/I35302-300x300.jpg" class="rounded-circle collection-img" alt="Headphones">
-                  <div class="collection-caption">Android ტელევიზორები</div>
+                  <div class="collection-caption" data-translate="android_tvs">Android ტელევიზორები</div>
                 </div>
                 <div class="collection-item text-center">
                   <img src="https://pcshop.ge/wp-content/uploads/I31830-300x300.jpg" class="rounded-circle collection-img" alt="Earbuds">
-                  <div class="collection-caption">Gaming ყურსასმენები</div>
+                  <div class="collection-caption" data-translate="gaming_headphones">Gaming ყურსასმენები</div>
                 </div>
                 <div class="collection-item text-center">
                   <img src="https://pcshop.ge/wp-content/uploads/I30767-300x300.jpg" class="rounded-circle collection-img" alt="Speakers">
-                  <div class="collection-caption">Bluetooth დინამიკები</div>
+                  <div class="collection-caption" data-translate="bluetooth_speakers">Bluetooth დინამიკები</div>
                 </div>
                 <div class="collection-item text-center">
                   <img src="https://pcshop.ge/wp-content/uploads/2025/10/I35803-300x300.jpg" class="rounded-circle collection-img" alt="OLED TVs">
-                  <div class="collection-caption">Smart ტელევიზორები</div>
+                  <div class="collection-caption" data-translate="smart_tvs">Smart ტელევიზორები</div>
                 </div>
               </div>
             </div>
@@ -348,9 +358,9 @@
 
             <!-- Content -->
               <div class="product-content lift-content position-relative z-2 p-4" style="z-index: 2;">
-                <h5>მუსიკა გვაერთიანებს</h5>
-                <p>განიცადე უსაზღვრო სიამოვნება მუსიკის მოსმენით</p>
-                <a href="products.html" class="btn btn-light shop-btn">შეიძინეთ ახლავე</a>
+                <h5 data-translate="music_unites">მუსიკა გვაერთიანებს</h5>
+                <p data-translate="music_desc">განიცადე უსაზღვრო სიამოვნება მუსიკის მოსმენით</p>
+                <a href="products.html" class="btn btn-light shop-btn" data-translate="shop_now">შეიძინეთ ახლავე</a>
               </div>
             </div> <!-- END product-box -->
           </div> <!-- END flex column -->
@@ -380,9 +390,9 @@
 
               <!-- Content -->
               <div class="product-content lift-content p-4 position-relative" style="z-index: 2;">
-                <h5>ახალი ბრენდის ტელევიზორები</h5>
-                <p> შთამბეჭდავი ვიზუალებით და გრაფიკით აღფრთოვანებული დარჩებით</p>
-                <a href="products.html?category=tvs" class="btn btn-light shop-btn">შეიძინეთ ახლავე</a>
+                <h5 data-translate="new_brand_tvs">ახალი ბრენდის ტელევიზორები</h5>
+                <p data-translate="tvs_desc">შთამბეჭდავი ვიზუალებით და გრაფიკით აღფრთოვანებული დარჩებით</p>
+                <a href="products.html?category=tvs" class="btn btn-light shop-btn" data-translate="shop_now">შეიძინეთ ახლავე</a>
               </div>
             </div> 
           </div> 
@@ -398,13 +408,13 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-10 text-center">
-          <h3 class="text-dark-blue">Tech Market-ის შესახებ</h3>
-          <p class="about-text my-4">
-             <strong>Tech Market-ში </strong>გვსურს, ტექნოლოგიებისა და ცხოვრების სტილის პროდუქტების უახლესი ინოვაციები პირდაპირ თქვენს ხელში მოგაწოდოთ.
+          <h3 class="text-dark-blue" data-translate="about_techmarket">Tech Market-ის შესახებ</h3>
+          <p class="about-text my-4" data-translate="about_text">
+             Tech Market-ში გვსურს, ტექნოლოგიებისა და ცხოვრების სტილის პროდუქტების უახლესი ინოვაციები პირდაპირ თქვენს ხელში მოგაწოდოთ.
 ჩვენი მოგზაურობა მარტივი იდეით დაიწყო - მოწინავე ტექნოლოგიები ყველასთვის ხელმისაწვდომი, საიმედო და შთამაგონებელი გაგვეხადა.
 მძლავრი სმარტფონებიდან და  ლეპტოპებიდან დაწყებული, ჭკვიანი სახლის მოწყობილობებითა და ყოველდღიური აქსესუარებით დამთავრებული, ჩვენ ვცდილობთ შემოგთავაზოთ პროდუქტები, რომლებიც აერთიანებს თანამედროვე დიზაინს, ხანგრძლივად მუშაობას და მდგრად ხარისხს.
           </p>
-          <button id="readMoreBtn" class="btn btn-info text-white custom-btn" >წაიკითხეთ მეტი</button>
+          <button id="readMoreBtn" class="btn btn-info text-white custom-btn" data-translate="read_more">წაიკითხეთ მეტი</button>
 
           <!-- Hidden detailed text -->
           <!-- Hidden detailed text -->
@@ -416,22 +426,22 @@
               style="max-width: 85%; border-radius: 15px;">
              </div>
  
-              <p class="text-start">
-             ონლაინ შოპინგის ხელახლა განსაზღვრის ხედვით დაარსებული <strong>Tech Market</strong>გახდა სანდო ადგილი მომხმარებლებისთვის, რომლებიც აფასებენ ინოვაციას, ხარისხსა და დიზაინს. 
+              <p class="text-start" data-translate="read_more_content">
+             ონლაინ შოპინგის ხელახლა განსაზღვრის ხედვით დაარსებული Tech Market გახდა სანდო ადგილი მომხმარებლებისთვის, რომლებიც აფასებენ ინოვაციას, ხარისხსა და დიზაინს. 
              ჩვენ გვჯერა, რომ მომავალი მათ ეკუთვნის, ვინც ტექნოლოგიას იყენებს — და ჩვენი მიზანია, რომ ეს მომავალი ყველასთვის ხელმისაწვდომი გავხადოთ.
-             <br><br>
+             
             ჩვენი კოლექციის ყველა პროდუქტი — ჭკვიანი მოწყობილობებიდან და აქსესუარებიდან  დაწყებული თანამედროვე ცხოვრების წესისთვის აუცილებელი ნივთებით დამთავრებული — საგულდაგულოდ არის შერჩეული, რაც უზრუნველყოფს მუშაობას, საიმედოობას და ინოვაციურ დიზაინს.
              ჩვენ ვთანამშრომლობთ წამყვან გლობალურ ბრენდებთან, 
             რომლებიც იზიარებენ ჩვენს გატაცებას ინოვაციებისა და მომხმარებელთა კმაყოფილების მიმართ.
-            <br><br>
+            
            პროდუქტებს მიღმა, Tech Market წარმოადგენს მოაზროვნეების, შემქმნელებისა და ყოველდღიური მომხმარებლების საზოგადოებას, რომლებსაც სჯერათ,რომ ჩვენი ტექნოლოგიები ცხოვრებას გააუმჯობესებს.
             ჩვენი გუნდი მუდმივად აუმჯობესებს მომხმარებლის გამოცდილებას სწრაფი მიწოდების, უსაფრთხო გადახდების და რეაგირებადი მხარდაჭერის შეთავაზებით.
-             <br><br>
-             <strong>Tech Market-ში ჩვენ მხოლოდ ტექნოლოგიებს არ ვყიდით — ჩვენ ადამიანებს უფრო ჭკვიანურ ცხოვრებასთან ვაკავშირებთ, შთაგონებასა და ინოვაციას ვაკავშირებთ.</strong>
+             
+             Tech Market-ში ჩვენ მხოლოდ ტექნოლოგიებს არ ვყიდით — ჩვენ ადამიანებს უფრო ჭკვიანურ ცხოვრებასთან ვაკავშირებთ, შთაგონებასა და ინოვაციას ვაკავშირებთ.
               </p>
 
             <div class="text-center">
-            <button id="closeMore" class="btn btn-outline-secondary mt-3 px-4">დახურვა</button>
+            <button id="closeMore" class="btn btn-outline-secondary mt-3 px-4" data-translate="close">დახურვა</button>
           </div>
          </div>
         </div>
@@ -443,8 +453,8 @@
  <div class="brands-section">
   <div class="container-fluid mt-5">
     <div class="d-flex justify-content-between align-items-center mb-3">
-      <h5 class="fw-bold">ჩვენი ბრენდები</h5>
-      <a href="#" class="text-primary" data-bs-toggle="modal" data-bs-target="#brandsModal">ყველა ბრენდის ნახვა</a> 
+      <h5 class="fw-bold" data-translate="our_brands">ჩვენი ბრენდები</h5>
+      <a href="#" class="text-primary" data-bs-toggle="modal" data-bs-target="#brandsModal" data-translate="view_all_brands">ყველა ბრენდის ნახვა</a> 
     </div>
   
     <div class="container-fluid mt-4">
@@ -485,7 +495,7 @@
       <div class="modal-dialog modal-fullscreen modal-dialog-centered">
         <div class="modal-content" style="margin-top: 320px; padding: 65px;">
           <div class="modal-header">
-            <h5 class="modal-title">ყველა ბრენდი</h5>
+            <h5 class="modal-title" data-translate="all_brands">ყველა ბრენდი</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -526,10 +536,10 @@
     <!-- Left: Info section -->
     <div class="left-section p-4 d-flex flex-column justify-content-between">
       <div class="new-tv-content">
-        <h3 class="new-tv-caption">ახალი ტელევიზორები</h3>
-        <p class="new-tv-text">აღმოაჩინეთ ტოპ ხარისხის მოდელების ტელევიზორები, 
+        <h3 class="new-tv-caption" data-translate="new_tvs_title">ახალი ტელევიზორები</h3>
+        <p class="new-tv-text" data-translate="new_tvs_subtitle">აღმოაჩინეთ ტოპ ხარისხის მოდელების ტელევიზორები, 
           რეკომენდებულია ნამდვილი პროფესიონალების მიერ</p>
-         <a href="products.html?category=tvs" class="btn btn-light btn-lg mt-3">ტელევიზორების შეძენა</a>
+         <a href="products.html?category=tvs" class="btn btn-light btn-lg mt-3" data-translate="buy_tvs_now">ტელევიზორების შეძენა</a>
       </div>
       <img src="images/tv-image2.png" alt="TV promotion" class="img-fluid  mt-4">
     </div>
@@ -548,7 +558,7 @@
                 <h6>Skyworth 60G65H ეკრანი 4K რეზოლუციით</h6>
                 <p class="text-success mb-0">$1234.00</p>
                 <p>⭐⭐⭐⭐</p>
-                <p class="text-primary tv-stock">● მარაგშია, 46 რაოდენობა</p>
+                <p class="text-primary tv-stock" data-translate="in_stock_text">● მარაგშია, 46 რაოდენობა</p>
               </div>
               <div class="col-md-3 position-relative tv-card">
                 <img src="https://pcshop.ge/wp-content/uploads/2025/10/I35803-300x300.jpg" alt="TV 2">
@@ -556,7 +566,7 @@
                 <h6>Sony Bravia 3 50” K-50S30 Smart Android 4K</h6>
                 <p class="text-success">$7327.00</p>
                 <p>⭐⭐⭐⭐⭐</p>
-                <p class="text-primary tv-stock">● მარაგშია, 13 რაოდენობა</p>
+                <p class="text-primary tv-stock" data-translate="in_stock_text">● მარაგშია, 13 რაოდენობა</p>
               </div>
               <div class="col-md-3 tv-card">
                 <img src="https://pcshop.ge/wp-content/uploads/I32376.jpg" alt="TV 3">
@@ -564,7 +574,7 @@
                 <h6>Hisense 50” 50A6N Smart 4K</h6>
                 <p class="text-success">$4324.00</p>
                 <p>⭐⭐⭐⭐</p>
-                <p class="text-danger tv-stock">● იჩქარეთ! მხოლოდ 3 დარჩა</p>
+                <p class="text-danger tv-stock" data-translate="hurry_text">● იჩქარეთ! მხოლოდ 3 დარჩა</p>
               </div>
               <div class="col-md-3 tv-card">
                 <img src="https://pcshop.ge/wp-content/uploads/I31919-300x300.jpg" alt="TV 4">
@@ -572,7 +582,7 @@
                 <h6>Samsung 75” UE75DU7100UXRU Smart 4K</h6>
                 <p class="text-success">$30837.00</p>
                 <p>⭐⭐⭐⭐</p>
-                <p class="text-primary tv-stock">● მარაგშია, 145 რაოდენობა</p>
+                <p class="text-primary tv-stock" data-translate="in_stock_text">● მარაგშია, 145 რაოდენობა</p>
               </div>
             </div>
           </div>
@@ -586,7 +596,7 @@
                 <h6>Hisense 55” 55A7NQ Smart 4K</h6>
                 <p class="text-success">$6734.00</p>
                 <p>⭐⭐⭐⭐⭐</p>
-                <p class="text-danger tv-stock">● იჩქარეთ მხოლოდ 2 დარჩა</p>
+                <p class="text-danger tv-stock" data-translate="hurry_text">● იჩქარეთ მხოლოდ 2 დარჩა</p>
               </div>
               <div class="col-md-3 tv-card">
                 <img src="https://pcshop.ge/wp-content/uploads/I33360-300x300.jpg" alt="TV 6">
@@ -594,7 +604,7 @@
                 <h6>LG 55” 55NANO80T6AU Smart 4K</h6>
                 <p class="text-success">$24454.00</p>
                 <p>⭐⭐⭐⭐</p>
-                <p class="text-primary tv-stock">● მარაგშია, 15 დარჩა</p>
+                <p class="text-primary tv-stock" data-translate="in_stock_text">● მარაგშია, 15 დარჩა</p>
               </div>
               <div class="col-md-3 tv-card">
                 <img src="https://pcshop.ge/wp-content/uploads/I34076-300x300.jpg" alt="TV 7">
@@ -602,7 +612,7 @@
                 <h6>Skyworth 40” 40E55G Smart Android FHD</h6>
                 <p class="text-success">$67237.00</p>
                 <p>⭐⭐⭐⭐</p>
-                <p class="text-primary tv-stock">● მარაგშია, 9 რაოდენობა</p>
+                <p class="text-primary tv-stock" data-translate="in_stock_text">● მარაგშია, 9 რაოდენობა</p>
               </div>
               <div class="col-md-3 tv-card">
                 <img src="https://pcshop.ge/wp-content/uploads/2025/11/I35911.jpg" alt="TV 8">
@@ -610,7 +620,7 @@
                 <h6>Hisense 58” 58E7Q Smart 4K</h6>
                 <p class="text-success">$7424.00</p>
                 <p>⭐⭐⭐⭐⭐</p>
-                <p class="text-primary tv-stock">● მარაგშია, 50 რაოდენობა</p>
+                <p class="text-primary tv-stock" data-translate="in_stock_text">● მარაგშია, 50 რაოდენობა</p>
               </div>
             </div>
           </div>
@@ -632,7 +642,7 @@
        </div>
 
   <div class="featured-product-section">
-     <h5 class="mb-4">ყველაზე მოთხოვნადი პროდუქტი</h5>
+     <h5 class="mb-4" data-translate="most_demanded">ყველაზე მოთხოვნადი პროდუქტი</h5>
   <div class="row">
     <!-- Thumbnails -->
     <div class="col-md-1">
@@ -650,18 +660,18 @@
   <div class="zoom-container" style="width: 400px; height: 400px;">
     <img id="main-image" src="https://zoommer.ge/_next/image?url=https%3A%2F%2Fs3.zoommer.ge%2Fsite%2Ff87d48b4-2f4c-478b-a2f6-c382fe1146a1_Thumb.jpeg&w=640&q=100" class="zoom-image" alt="product">
   </div>
-  <p class="text-muted mt-2">
+  <p class="text-muted mt-2" data-translate="zoom_hint">
     <i class="bi bi-zoom-in"></i> დააკვირდი გამოსახულებას უკეთესად
   </p>
  </div>
     <!-- Details -->
     <div class="col-md-6">
-      <h5 class="text-black fw-bold">JBL პორტის CLIP 5 დინამიკი</h5>
+      <h5 class="text-black fw-bold" data-translate="jbl_speaker">JBL პორტის CLIP 5 დინამიკი</h5>
       <div class="rating mb-2">
         ★★★★☆
       </div>
 
-      <div class="mb-2"><strong>ფერი:</strong></div>
+      <div class="mb-2"><strong data-translate="color">ფერი:</strong></div>
       <div class="mb-3">
         <span class="color-swatch bg-white active"
          data-main="https://zoommer.ge/_next/image?url=https%3A%2F%2Fs3.zoommer.ge%2Fsite%2Ff87d48b4-2f4c-478b-a2f6-c382fe1146a1_Thumb.jpeg&w=640&q=100"
@@ -676,9 +686,9 @@
         <span class="color-swatch" style="background-color:#E5A8AF;" data-main="https://zoommer.ge/_next/image?url=https%3A%2F%2Fs3.zoommer.ge%2Fsite%2Ffdbaf9d9-9886-4139-ae06-3bd53b7e6467_Thumb.jpeg&w=640&q=100"
         data-thumbs="https://zoommer.ge/_next/image?url=https%3A%2F%2Fs3.zoommer.ge%2Fsite%2Ffdbaf9d9-9886-4139-ae06-3bd53b7e6467_Thumb.jpeg&w=640&q=100,https://zoommer.ge/_next/image?url=https%3A%2F%2Fs3.zoommer.ge%2Fsite%2F338c97ef-c3fd-4639-85e2-ba18129ee60f_Thumb.jpeg&w=640&q=100,https://zoommer.ge/_next/image?url=https%3A%2F%2Fs3.zoommer.ge%2Fsite%2Fe960c2ea-89cd-4c92-89fa-851f7ca0daef_Thumb.jpeg&w=640&q=100"></span>
       </div>
-      <div class="mb-2"><strong>ფასი:</strong> <span class="text-success fs-4">$87.75</span></div>
+      <div class="mb-2"><strong data-translate="price">ფასი:</strong> <span class="text-success fs-4">$87.75</span></div>
             <div class="d-flex gap-3">
-        <button id="add-to-cart" class="btn btn-info text-white w-50 purchase-btn">
+        <button id="add-to-cart" class="btn btn-info text-white w-50 purchase-btn" data-translate="add_to_cart">
            კალათაში დამატება
         </button>
       </div>
@@ -686,7 +696,7 @@
   </div>
   </div>
  <div class="container my-5 our-stores-section">
-  <h5 class="mb-4">ჩვენი მაღაზიები</h5>
+  <h5 class="mb-4" data-translate="our_stores">ჩვენი მაღაზიები</h5>
   <div class="row g-0 d-flex align-items-stretch">
     <!-- მარცხენა სვეტი: მაღაზიის შესახებ -->
     <div class="col-md-6 d-flex">
@@ -695,36 +705,36 @@
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                      aria-expanded="true" aria-controls="collapseOne">
+                      aria-expanded="true" aria-controls="collapseOne" data-translate="visit_main_branch">
               ეწვიეთ ჩვენ მთავარ ფილიალს
               </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                  data-bs-parent="#storeAccordion">
               <div class="accordion-body">
-                <p class="accordion-text">76 აკაკი წერეთლის გამზირი, თბილისი</p>
-                <p class="text-muted mb-1">ორშაბათი - პარასკევი: 09:00 - 20:00</p>
-                <p class="text-muted mb-1">შაბათი: 09:00 - 18:00</p>
-                <p class="text-muted mb-3">კვირა: დაკეტილია</p>
-                <a href="https://www.google.com/maps/place/Pro+Tech+Market+Ltd/@41.7576702,44.7645307,16z/data=!4m10!1m2!2m1!1stech+market+tbilisi!3m6!1s0x4044727bf15dd315:0xec20677636df0977!8m2!3d41.7576862!4d44.7714401!15sChN0ZWNoIG1hcmtldCB0YmlsaXNpkgESZV9jb21tZXJjZV9zZXJ2aWNlqgFMEAEqDyILdGVjaCBtYXJrZXQoADIeEAEiGkXTlq4iU4_G1lvIJPjdyycev974AZSzUdrfMhcQAiITdGVjaCBtYXJrZXQgdGJpbGlzaeABAA!16s%2Fg%2F11c60k6ls1?entry=ttu&g_ep=EgoyMDI1MTExNi4wIKXMDSoASAFQAw%3D%3D" class="btn btn-custom" style="border-radius: 0;" >მიმართულებების ჩვენება</a>
+                <p class="accordion-text" data-translate="store1_address">76 აკაკი წერეთლის გამზირი, თბილისი</p>
+                <p class="text-muted mb-1" data-translate="weekdays_1">ორშაბათი - პარასკევი: 09:00 - 20:00</p>
+                <p class="text-muted mb-1" data-translate="saturday_1">შაბათი: 09:00 - 18:00</p>
+                <p class="text-muted mb-3" data-translate="sunday">კვირა: დაკეტილია</p>
+                <a href="https://www.google.com/maps/place/Pro+Tech+Market+Ltd/@41.7576702,44.7645307,16z/data=!4m10!1m2!2m1!1stech+market+tbilisi!3m6!1s0x4044727bf15dd315:0xec20677636df0977!8m2!3d41.7576862!4d44.7714401!15sChN0ZWNoIG1hcmtldCB0YmlsaXNpkgESZV9jb21tZXJjZV9zZXJ2aWNlqgFMEAEqDyILdGVjaCBtYXJrZXQoADIeEAEiGkXTlq4iU4_G1lvIJPjdyycev974AZSzUdrfMhcQAiITdGVjaCBtYXJrZXQgdGJpbGlzaeABAA!16s%2Fg%2F11c60k6ls1?entry=ttu&g_ep=EgoyMDI1MTExNi4wIKXMDSoASAFQAw%3D%3D" class="btn btn-custom" style="border-radius: 0;" data-translate="show_directions">მიმართულებების ჩვენება</a>
               </div>
             </div>
           </div>
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingTwo">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" data-translate="our_second_branch">
                 ჩვები მეორე ფილიალი
               </button>
             </h2>
             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                  data-bs-parent="#storeAccordion">
               <div class="accordion-body">
-                <p class="accordion-text">26 ყაზბეგის გამზირი, თბილისი</p>
-                <p class="text-muted mb-1">ორშაბათი - პარასკევი: 10:00 - 20:00</p>
-                <p class="text-muted mb-1">შაბათი: 11:00 - 21:00</p>
-                <p class="text-muted mb-3">კვირა: დაკეტილია</p>
-                <a href="https://www.google.com/maps/place/26+Alexander+Kazbegi+Ave,+T'bilisi/@41.7239334,44.7423596,17z/data=!3m1!4b1!4m6!3m5!1s0x4044731a736bb1f7:0xe5a17c50f1da72b5!8m2!3d41.7239334!4d44.7449399!16s%2Fg%2F11_v7ng4r?entry=ttu&g_ep=EgoyMDI1MTExNi4wIKXMDSoASAFQAw%3D%3D" class="btn btn-custom" style="border-radius: 0;">მიმართულებების ჩვენება</a>
+                <p class="accordion-text" data-translate="store2_address">26 ყაზბეგის გამზირი, თბილისი</p>
+                <p class="text-muted mb-1" data-translate="weekdays_2">ორშაბათი - პარასკევი: 10:00 - 20:00</p>
+                <p class="text-muted mb-1" data-translate="saturday_2">შაბათი: 11:00 - 21:00</p>
+                <p class="text-muted mb-3" data-translate="sunday">კვირა: დაკეტილია</p>
+                <a href="https://www.google.com/maps/place/26+Alexander+Kazbegi+Ave,+T'bilisi/@41.7239334,44.7423596,17z/data=!3m1!4b1!4m6!3m5!1s0x4044731a736bb1f7:0xe5a17c50f1da72b5!8m2!3d41.7239334!4d44.7449399!16s%2Fg%2F11_v7ng4r?entry=ttu&g_ep=EgoyMDI1MTExNi4wIKXMDSoASAFQAw%3D%3D" class="btn btn-custom" style="border-radius: 0;" data-translate="show_directions">მიმართულებების ჩვენება</a>
               </div>
             </div>
           </div>
@@ -740,28 +750,28 @@
   </div>
  </div>
      <div class="most-searched-section container py-4">
-       <h5 class="mb-3 text-center">ყველაზე ხშირად მოძიებული პროდუქტები</h5>
+       <h5 class="mb-3 text-center" data-translate="most_searched">ყველაზე ხშირად მოძიებული პროდუქტები</h5>
 
        <div class="row g-0 border-0">
 
          <!-- ყურსასმენები -->
          <div class="col-12 col-md-4">
            <div class="collection-box text-center py-3">
-             <a href="products.html?category=headphones" class="collection-title">ყურსასმენები</a>
+             <a href="products.html?category=headphones" class="collection-title" data-translate="headphones">ყურსასმენები</a>
            </div>
          </div>
 
          <!-- დინამიკები -->
          <div class="col-12 col-md-4">
            <div class="collection-box text-center py-3">
-             <a href="products.html?category=speakers" class="collection-title">დინამიკები</a>
+             <a href="products.html?category=speakers" class="collection-title" data-translate="speakers">დინამიკები</a>
            </div>
          </div>
 
          <!-- ტელევიზორები -->
          <div class="col-12 col-md-4">
            <div class="collection-box text-center py-3">
-             <a href="products.html?category=tvs" class="collection-title">ტელევიზორები</a>
+             <a href="products.html?category=tvs" class="collection-title" data-translate="new_tvs">ტელევიზორები</a>
            </div>
          </div>
        </div>
@@ -774,23 +784,23 @@
     <div class="row text-center text-md-start">
       <div class="col-md-3 mb-3">
         <img src="https://img.icons8.com/ios-filled/50/000000/delivery.png" width="30" alt="Delivery" />
-        <p class="fw-bold mb-1">უფასო მიტანის სერვისი $1000+ შეკვეთებზე</p>
-        <p class="text-muted small">We deliver in 48 hours max!</p>
+        <p class="fw-bold mb-1" data-translate="free_delivery">უფასო მიტანის სერვისი $1000+ შეკვეთებზე</p>
+        <p class="text-muted small" data-translate="delivery_desc">We deliver in 48 hours max!</p>
       </div>
       <div class="col-md-3 mb-3">
         <img src="https://img.icons8.com/ios-filled/50/000000/refund.png" width="30" alt="Refund" />
-        <p class="fw-bold mb-1">კმაყოფილების განცდა ან უკან დაბრუნება და ანაზღაურება</p>
-        <p class="text-muted small">უფასო დაბრუნება 14 დღეში!</p>
+        <p class="fw-bold mb-1" data-translate="satisfaction">კმაყოფილების განცდა ან უკან დაბრუნება და ანაზღაურება</p>
+        <p class="text-muted small" data-translate="return_desc">უფასო დაბრუნება 14 დღეში!</p>
       </div>
       <div class="col-md-3 mb-3">
         <img src="https://img.icons8.com/ios-filled/50/000000/online-support.png" width="30" alt="Support" />
-        <p class="fw-bold mb-1">ხელმისაწვდომები ვართ 24/7ზე</p>
-        <p class="text-muted small">დაგვიკავშირდით ფოსტაზე, ან მობილურ ტელეფონზე</p>
+        <p class="fw-bold mb-1" data-translate="support">ხელმისაწვდომები ვართ 24/7ზე</p>
+        <p class="text-muted small" data-translate="support_desc">დაგვიკავშირდით ფოსტაზე, ან მობილურ ტელეფონზე</p>
       </div>
       <div class="col-md-3 mb-3">
         <img src="https://img.icons8.com/ios-filled/50/000000/secured-letter.png" width="30" alt="Secure Payment" />
-        <p class="fw-bold mb-1">100% დაცული გადახდა</p>
-        <p class="text-muted small">Visa, Mastercard, Amex, PayPal</p>
+        <p class="fw-bold mb-1" data-translate="secure_payment">100% დაცული გადახდა</p>
+        <p class="text-muted small" data-translate="payment_desc">Visa, Mastercard, Amex, PayPal</p>
       </div>
     </div>
   </div>
@@ -802,26 +812,26 @@
     <div class="row text-start">
       <!-- Column 1 -->
       <div class="col-md-3 mb-4">
-        <h6 class="fw-bold">დამატებითი ინფორმაცია</h6>
-        <p class="small">
+        <h6 class="fw-bold" data-translate="additional_info">დამატებითი ინფორმაცია</h6>
+        <p class="small" data-translate="additional_text">
           ისარგებლეთ ონლაინ შოპინგით ჩვენ ვებ-გვერდზე ან ესტუმრეთ ჩვენს ფილიალებს თბილისში, სადაც ჩვენი პროფესიონალი გუნდი დაგეხმარებათ საუკეთესო პროდუქტის არჩევაში.
         </p>
-        <p class="small fst-italic">
+        <p class="small fst-italic" data-translate="sponsors">
           მადლობა ჩვენს სპონსორებს <a href="#" class="text-decoration-underline">LG, SAMSUNG, PHILIPS, SONY...</a> რომლებიც მუდამ მხარს გვიჭერენ.
         </p>
-        <p class="text-muted mt-2 small">© 2025 Tech Market<br>Powered by Google</p>
+        <p class="text-muted mt-2 small" data-translate="copyright">© 2025 Tech Market<br>Powered by Google</p>
       </div>
 
       <!-- Column 2 -->
       <div class="col-md-3 mb-4">
-        <h6 class="fw-bold">პოპულარული კოლექცია</h6>
+        <h6 class="fw-bold" data-translate="popular_collection">პოპულარული კოლექცია</h6>
         <ul class="list-unstyled small">
-          <li>დინამიკები</li>
-          <li>Audio მოწყობილობები</li>
-          <li>ყურსასმენები</li>
-          <li>მინი სტუდია</li>
-          <li>Gaming ყურსასმენები</li>
-          <li>ბრენდული ტელევიზორები</li>
+          <li data-translate="speakers_list">დინამიკები</li>
+          <li data-translate="audio_devices">Audio მოწყობილობები</li>
+          <li data-translate="headphones_list">ყურსასმენები</li>
+          <li data-translate="mini_studio">მინი სტუდია</li>
+          <li data-translate="gaming_headphones_list">Gaming ყურსასმენები</li>
+          <li data-translate="branded_tvs">ბრენდული ტელევიზორები</li>
         </ul>
         <div class="d-flex mt-3 gap-2">
           <a href="#"><i class="bi bi-facebook fs-5"></i></a>
@@ -834,8 +844,8 @@
 
     <!-- Column 3 -->
       <div class="col-md-3 mb-4">
-        <h6 class="fw-bold">შემდეგი ინფორმაცია</h6>
-        <p style="font-size: 14px; line-height: 1.6;">
+        <h6 class="fw-bold" data-translate="more_info">შემდეგი ინფორმაცია</h6>
+        <p style="font-size: 14px; line-height: 1.6;" data-translate="more_info_text">
           Tech Market წარმოადგენს თანამედროვე ონლაინ მაღაზიას, 
           სადაც შეგხვდებათ მაღალი ხარისხის ტექნიკა — 
           ყურსასმენები, დინამიკები, ტელევიზორები და სხვა 
@@ -847,15 +857,15 @@
 
       <!-- Column 4 -->
       <div class="col-md-3 mb-4">
-        <h6 class="fw-bold">საინფორმაციო ბიულეტენი</h6>
-        <p class="small">გამოიწერეთ ბიულეტენი რომ არ გამოგეპაროთ სიახლეები ახალ პროდუქტებზე.</p>
+        <h6 class="fw-bold" data-translate="newsletter">საინფორმაციო ბიულეტენი</h6>
+        <p class="small" data-translate="newsletter_desc">გამოიწერეთ ბიულეტენი რომ არ გამოგეპაროთ სიახლეები ახალ პროდუქტებზე.</p>
         <form>
           <div class="mb-2">
-            <input type="email" class="form-control form-control-sm" placeholder="Your email" />
+            <input type="email" class="form-control form-control-sm" data-translate-placeholder="your_email" placeholder="Your email" />
           </div>
-          <button class="btn btn-primary btn-sm w-100" type="submit">გამოწერა</button>
+          <button class="btn btn-primary btn-sm w-100" type="submit" data-translate="subscribe">გამოწერა</button>
         </form>
-        <p class="mt-3 small fw-bold">ჩვენთვის მისაღებია</p>
+        <p class="mt-3 small fw-bold" data-translate="accepted">ჩვენთვის მისაღებია</p>
         <div class="d-flex gap-2">
           <img src="https://img.icons8.com/color/48/visa.png" width="30" />
           <img src="https://img.icons8.com/color/48/mastercard-logo.png" width="30" />
